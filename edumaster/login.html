@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduMaster | Login / Sign Up</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet">
+  <style>
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ffeba7;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 999;
+      transition: background 0.3s;
+    }
+    .home-button:hover {
+      background-color: #caa937;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="home-button">🏠 Home</a>
+
+  <div class="section">
+    <div class="container">
+      <div class="row full-height justify-content-center">
+        <div class="col-12 text-center align-self-center py-5">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <div class="form-toggle-wrapper">
+              <div class="toggle-btn">
+                <button onclick="document.querySelector('.card-3d-wrap').classList.toggle('flipped')">
+                  Login / Sign Up
+                </button>
+              </div>
+
+              <div class="card-container">
+                <div class="card-3d-wrap mx-auto">
+                  <!-- FRONT -->
+                  <div class="card-front">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Log In</h4>
+                        <form id="loginForm" action="login.php" method="POST">
+                          <div class="form-group">
+                            <input type="email" name="email" class="form-style" placeholder="Your Email" required>
+                            <i class="input-icon uil uil-at"></i>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="password" id="login-password" name="password" class="form-style" placeholder="Your Password" required>
+                            <i class="input-icon uil uil-lock-alt"></i>
+                          </div>
+                          <div class="form-group show-password">
+                            <input type="checkbox" id="toggle-login-password">
+                            <label for="toggle-login-password">Show Password</label>
+                          </div>
+                          <button type="submit" class="btn mt-4">Login</button>
+                          <p class="mb-0 mt-4 text-center"><a href="forgot-password.html" class="link">Forgot your password?</a></p>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- BACK -->
+                  <div class="card-back">
+                    <div class="center-wrap">
+                      <div class="section text-center">
+                        <h4 class="mb-4 pb-3">Sign Up</h4>
+                        <form id="signupForm" action="register.php" method="POST" onsubmit="return validateSignupForm()">
+                          <div class="form-group">
+                            <input type="text" name="name" class="form-style" placeholder="Your Full Name" required>
+                            <i class="input-icon uil uil-user"></i>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="email" name="email" class="form-style" placeholder="Your Email" required>
+                            <i class="input-icon uil uil-at"></i>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="password" id="signup-password" name="password" class="form-style" placeholder="Your Password" required>
+                            <i class="input-icon uil uil-lock-alt"></i>
+                          </div>
+                          <div class="form-group show-password">
+                            <input type="checkbox" id="toggle-signup-password">
+                            <label for="toggle-signup-password">Show Password</label>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="text" id="security_question_1" name="security_question_1" class="form-style" placeholder="Security Question 1" required>
+                            <i class="input-icon uil uil-question-circle"></i>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="text" name="security_answer_1" class="form-style" placeholder="Answer for Question 1" required>
+                            <i class="input-icon uil uil-comment-alt-dots"></i>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="text" id="security_question_2" name="security_question_2" class="form-style" placeholder="Security Question 2" required>
+                            <i class="input-icon uil uil-question-circle"></i>
+                          </div>
+                          <div class="form-group mt-2">
+                            <input type="text" name="security_answer_2" class="form-style" placeholder="Answer for Question 2" required>
+                            <i class="input-icon uil uil-comment-alt-dots"></i>
+                          </div>
+                          <button type="submit" class="btn mt-4">Sign Up</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- card-3d-wrap -->
+              </div> <!-- card-container -->
+            </div> <!-- form-toggle-wrapper -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validateSignupForm() {
+      const password = document.getElementById('signup-password').value;
+      const q1 = document.getElementById('security_question_1').value.trim().toLowerCase();
+      const q2 = document.getElementById('security_question_2').value.trim().toLowerCase();
+
+      const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&()_+\-={}\[\]|\\:;"'<>,.?/~`]).{8,}$/;
+
+      if (!regex.test(password)) {
+        alert("❌ Password must be at least 8 characters long, include an uppercase letter, a number, and a special character.");
+        return false;
+      }
+
+      if (q1 && q2 && q1 === q2) {
+        alert("⚠️ Security questions must not be the same.");
+        return false;
+      }
+
+      return true;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleLogin = document.getElementById('toggle-login-password');
+      const loginPw = document.getElementById('login-password');
+      if (toggleLogin) {
+        toggleLogin.addEventListener('change', () => {
+          loginPw.type = toggleLogin.checked ? 'text' : 'password';
+        });
+      }
+
+      const toggleSignup = document.getElementById('toggle-signup-password');
+      const signupPw = document.getElementById('signup-password');
+      if (toggleSignup) {
+        toggleSignup.addEventListener('change', () => {
+          signupPw.type = toggleSignup.checked ? 'text' : 'password';
+        });
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('signup') === 'success') {
+        alert('✅ Sign up successful! You can now log in.');
+        history.replaceState(null, '', window.location.pathname);
+      }
+
+      const error = urlParams.get('error');
+      const errorMessages = {
+        empty_fields: '⚠️ Please fill in both email and password.',
+        incorrect_password: '❌ Incorrect password. Please try again.',
+        user_not_found: '❌ No user found with that email.',
+        server_error: '⚠️ Server error. Please try again later.',
+        email_exists: '❌ Email already registered. Please log in or use another email.'
+      };
+      if (error && errorMessages[error]) {
+        alert(errorMessages[error]);
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  </script>
+
+</body>
+</html>

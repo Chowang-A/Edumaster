@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduMaster - Learn Anytime, Anywhere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1740&q=80') no-repeat center center/cover;
+      color: #ffffff;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #f9c349;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f9c349;
+    }
+    .btn {
+      background: #f9c349;
+      color: #111;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #ffd966;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #ddd;
+    }
+    .features, .how-it-works {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .features h2, .how-it-works h2 {
+      color: #f9c349;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .cards, .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .card, .step {
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .icon, .number {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #f9c349;
+    }
+    footer {
+      background: #0f0f0f;
+      color: #ccc;
+      padding: 3rem 2rem;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-column h3, .footer-column h4 {
+      color: #f9c349;
+    }
+    .footer-column {
+      flex: 1 1 200px;
+    }
+    .social-icons span {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: #f9c349;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .cards, .steps {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">EDUMASTER</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="courses.php">Courses</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="login.html" class="btn">LOGIN</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Learn Anytime, Anywhere</h1>
+    <p>Access quality education with one click.</p>
+    <a href="courses.php" class="btn">Explore Courses</a>
+  </section>
+
+  <section class="features">
+    <h2>Why Choose EduMaster</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">📚</div>
+        <h3>Flexible Learning</h3>
+        <p>Study at your own pace with offline access.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>Expert Instructors</h3>
+        <p>Learn from top educators worldwide.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📝</div>
+        <h3>Interactive Quizzes</h3>
+        <p>Practice with real-time assessments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="number">1</div>
+        <h3>Browse Courses</h3>
+        <p>Find the right subject and instructor.</p>
+      </div>
+      <div class="step">
+        <div class="number">2</div>
+        <h3>Enroll Online</h3>
+        <p>Sign up in seconds and get started.</p>
+      </div>
+      <div class="step">
+        <div class="number">3</div>
+        <h3>Start Learning</h3>
+        <p>Gain new skills anytime, anywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>EDUMASTER</h3>
+        <p>Your gateway to modern education.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <p>Email: info@edumaster.com</p>
+        <p>Phone: +91 9999999999</p>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <span>📘</span>
+          <span>🐦</span>
+          <span>📸</span>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Address</h4>
+        <p>EduMaster HQ, Bangalore, India</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
